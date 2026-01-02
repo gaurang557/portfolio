@@ -12,12 +12,12 @@ function App() {
   };
 
   const skills = {
-    languages: ['JavaScript', 'TypeScript', 'C#', 'C++', 'Python'],
-    backend: ['.NET 8.0', '.NET Core', 'ASP.NET', 'Node.js', 'Express.js'],
-    frontend: ['React', 'Next.js', 'Angular', 'Redux', 'HTML5', 'CSS3', 'Tailwind', 'Material UI'],
-    cloud: ['AWS EC2', 'EKS', 'ECR', 'RDS', 'S3', 'Route53'],
-    devops: ['Docker', 'Kubernetes', 'Helm', 'Jenkins', 'Git'],
-    databases: ['SQL', 'MongoDB', 'PostgreSQL']
+    languages: ['C#', 'C++', 'Python','JavaScript', 'TypeScript', 'SQL'],
+    backend: ['.NET Core', 'ASP.NET', 'Django', 'Spring Boot', 'Node.js', 'Express.js'],
+    frontend: ['Next.js', 'React', 'Angular', 'Zustand', 'Redux', 'HTML5', 'CSS3', 'Tailwind', 'Material UI'],
+    cloud: ['Azure', 'Azure DevOps','AWS', 'EC2', 'EKS', 'ECR', 'RDS', 'S3', 'Route53'],
+    devops: ['Docker', 'Kubernetes', 'Helm', 'GitHub Actions', 'CI/CD Pipelines', 'Git'],
+    databases: ['PostgreSQL','MongoDB']
   };
 
   const experience = [
@@ -137,12 +137,12 @@ function App() {
           <h3 className="text-4xl font-bold text-center mb-12 text-gray-900">About Me</h3>
           <div className="max-w-3xl mx-auto text-lg text-gray-700 space-y-4">
             <p>
-              I'm a Software Engineer at Accenture with expertise in .NET development, cloud architecture, and full-stack web development. 
-              With over 2 years of experience, I've successfully delivered enterprise applications serving 100,000+ users.
+              I'm a Software Engineer at Accenture with expertise in full stack web development, cloud architecture, and utility development. 
+              With nearing 3 years of experience.
             </p>
             <p>
               My passion lies in building scalable solutions, automating workflows, and modernizing legacy systems. 
-              I've saved 500+ engineering hours through automation and led critical migration projects.
+              I've saved 1000+ engineering hours through automation and led critical migration projects.
             </p>
             <div className="flex items-center gap-2 pt-4">
               <GraduationCap className="text-blue-600" size={24} />
