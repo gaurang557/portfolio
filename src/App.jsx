@@ -58,8 +58,26 @@ function App() {
       description: "Created an Angular application which fetches a list of movies \
       from OMDB Api and displays them in a user-friendly interface. Implemented search functionality",
       technologies: ['Angular', 'Node.js'],
-      githubUrl: 'https://github.com/gaurang557/project-name',
+      githubUrl: 'https://github.com/gaurang557/angular_omdb_app',
       liveUrl: 'https://gaurang557.github.io/angular_omdb_app/index' 
+    },
+    {
+      title: 'Rate limiter Middleware',
+      description: "Developing a rate limiter middleware using .NET \
+      making the application live soon.",
+      technologies: ['.NET'],
+      githubUrl: '',
+      liveUrl: '' 
+    },
+    {
+      title: 'Dashboard Admin Panel',
+      description: "Developing a responsive admin dashboard for the rate limiter\
+      application using Next.js, \
+      featuring data visualization with charts and graphs, user authentication, \
+      making the application live soon.",
+      technologies: ['Next.js', 'Node.js'],
+      githubUrl: '',
+      liveUrl: '' 
     }
   ];
 
@@ -236,7 +254,7 @@ function App() {
                   ))}
                 </div>
                 <div className="flex gap-3">
-                  <a 
+                  {project.githubUrl && <a 
                     href={project.githubUrl} 
                     target="_blank" 
                     rel="noopener noreferrer"
@@ -244,6 +262,7 @@ function App() {
                   >
                     <Github size={18} className='text-gray-100' /> <span className="text-gray-100">Code</span>
                   </a>
+                  }
                   {project.liveUrl && (
                     <a 
                       href={project.liveUrl} 
