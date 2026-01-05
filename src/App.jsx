@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Menu, X, Github, Linkedin, Mail, Phone, ExternalLink, Award, Briefcase, GraduationCap, Code } from 'lucide-react';
-
+import './App.css';
+import Hero from './Hero';
+import About from './About';
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
@@ -82,20 +84,20 @@ function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+    <div className="min-h-screen min-w-screen bg-gradient-to-br from-gray-50 to-gray-100">
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-white shadow-md z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <h2 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              <p className="name text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 Gaurang Agarwal
-              </h2>
+              </p>
             </div>
             
             {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-8">
-              {['home', 'about', 'skills', 'experience', 'projects', 'achievements', 'contact'].map((section) => (
+              {['home', 'about', 'projects', 'skills', 'experience', 'achievements', 'contact'].map((section) => (
                 <button
                   key={section}
                   onClick={() => scrollToSection(section)}
@@ -120,7 +122,7 @@ function App() {
           {/* Mobile Navigation */}
           {isMenuOpen && (
             <div className="md:hidden pb-4">
-              {['home', 'about', 'skills', 'experience', 'projects', 'achievements', 'contact'].map((section) => (
+              {['home', 'about', 'projects', 'skills', 'experience', 'achievements', 'contact'].map((section) => (
                 <button
                   key={section}
                   onClick={() => scrollToSection(section)}
@@ -133,56 +135,47 @@ function App() {
           )}
         </div>
       </nav>
-
-      {/* Hero Section */}
-      <section id="home" className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-5xl sm:text-6xl font-bold text-gray-900 mb-6">
-            Software Engineer
-          </h2>
-          <p className="text-xl sm:text-2xl text-gray-600 mb-8">
-            Specializing in Full-Stack Development and Cloud Architecture
-          </p>
-          <div className="flex justify-center gap-4 flex-wrap">
-            <a href="https://github.com/gaurang557" target="_blank" rel="noopener noreferrer" 
-               className="flex items-center gap-2 bg-gray-800 px-6 py-3 rounded-lg hover:bg-gray-700 transition-colors">
-              <Github className="text-gray-100" size={20} /> <span className='text-gray-100'>GitHub</span>
-            </a>
-            <a href="https://linkedin.com/in/gaurang-agarwal-512a4b197" target="_blank" rel="noopener noreferrer"
-               className="flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
-              <Linkedin className="text-gray-100" size={20} /> <span className='text-gray-100'>LinkedIn</span>
-            </a>
-            <a href="mailto:gaurangagarwal557@gmail.com"
-               className="flex items-center gap-2 bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors">
-              <Mail className='text-gray-100' size={20} /> <span className='text-gray-100'>Email</span>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <Hero />
+      <About />
+      {/* Projects Section */}
+      <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <h3 className="text-4xl font-bold text-center mb-12 text-gray-900">About Me</h3>
-          <div className="max-w-3xl mx-auto text-lg text-gray-700 space-y-4">
-            <p>
-              I'm a Software Engineer at Accenture with nearly 3 years of experience 
-              transforming ideas into robust, scalable systems. I specialize in 
-              full-stack development, cloud architecture, and building tools that make 
-              engineering teams more efficient. I thrive on solving complex problems—whether
-              it's architecting cloud-native solutions, automating workflows to save
-              thousands of engineering hours, or modernizing legacy systems for the modern web.
-            </p>
-            <p>
-              My work has directly saved over 1,000 engineering hours through intelligent 
-              automation and process optimization. When I'm not coding, I'm exploring 
-              new technologies and finding ways to make development workflows smoother 
-              and more efficient.
-            </p>
-            <div className="flex items-center gap-2 pt-4">
-              <GraduationCap className="text-blue-600" size={24} />
-              <span className="font-semibold">B.Tech Computer Science - JSS Academy of Technical Education Noida (2018-2022)</span>
-            </div>
+          <h3 className="text-4xl font-bold text-center mb-12 text-gray-900">Projects</h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {projects.map((project, index) => (
+              <div key={index} className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
+                <h4 className="text-2xl font-bold text-gray-900 mb-3">{project.title}</h4>
+                <p className="text-gray-700 mb-4">{project.description}</p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.technologies.map((tech) => (
+                    <span key={tech} className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                <div className="flex gap-3">
+                  {project.githubUrl && <a 
+                    href={project.githubUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors"
+                  >
+                    <Github size={18} className='text-gray-100' /> <span className="text-gray-100">Code</span>
+                  </a>
+                  }
+                  {project.liveUrl && (
+                    <a 
+                      href={project.liveUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                    >
+                      <ExternalLink size={18} className="text-gray-100" /> <span className="text-gray-100">Live Demo</span>
+                    </a>
+                  )}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -234,49 +227,6 @@ function App() {
               </ul>
             </div>
           ))}
-        </div>
-      </section>
-
-      {/* Projects Section */}
-      <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <h3 className="text-4xl font-bold text-center mb-12 text-gray-900">Projects</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((project, index) => (
-              <div key={index} className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
-                <h4 className="text-2xl font-bold text-gray-900 mb-3">{project.title}</h4>
-                <p className="text-gray-700 mb-4">{project.description}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.map((tech) => (
-                    <span key={tech} className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex gap-3">
-                  {project.githubUrl && <a 
-                    href={project.githubUrl} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors"
-                  >
-                    <Github size={18} className='text-gray-100' /> <span className="text-gray-100">Code</span>
-                  </a>
-                  }
-                  {project.liveUrl && (
-                    <a 
-                      href={project.liveUrl} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
-                    >
-                      <ExternalLink size={18} className="text-gray-100" /> <span className="text-gray-100">Live Demo</span>
-                    </a>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
