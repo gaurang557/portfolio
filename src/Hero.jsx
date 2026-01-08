@@ -3,8 +3,7 @@ import { Menu, X, Github, Linkedin, Mail, Phone, ExternalLink, Award, Briefcase,
 import { FaReact } from 'react-icons/fa';
 import { SiNextdotjs } from 'react-icons/si';
 import { FaAngular, FaJsSquare, FaHtml5, FaCss3Alt, FaDatabase, FaGithub } from 'react-icons/fa';
-
-
+// import { FaDotNet } from 'react-icons/fa';
 
 const Hero = () => {
   return (
