@@ -18,8 +18,8 @@ function App() {
     languages: ['C#', 'C++', 'Python','JavaScript', 'TypeScript', 'SQL'],
     backend: ['.NET Core', 'ASP.NET', 'Django', 'Spring Boot', 'Node.js', 'Express.js'],
     frontend: ['Next.js', 'React', 'Angular', 'Zustand', 'Redux', 'HTML5', 'CSS3', 'Tailwind', 'Material UI'],
-    cloud: ['Azure', 'Azure DevOps','AWS', 'EC2', 'EKS', 'ECR', 'RDS', 'S3', 'Route53'],
-    devops: ['Docker', 'Kubernetes', 'Helm', 'GitHub Actions', 'CI/CD Pipelines', 'Git'],
+    cloud: ['Azure','AWS', 'EC2', 'EKS', 'ECR', 'RDS', 'S3', 'Route53'],
+    devops: ['Azure Devops', 'CI/CD Pipelines', 'GitHub Actions', 'Docker', 'Kubernetes', 'Helm', 'Git'],
     databases: ['PostgreSQL','MongoDB']
   };
 

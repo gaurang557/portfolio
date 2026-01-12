@@ -3,6 +3,24 @@ import { Github, ExternalLink } from 'lucide-react';
 
 const Projects = () => {
     const projects = [
+      {
+      title: 'Analytics Dashboard',
+      description: "A web-based dashboard application that visualizes visits on my portfolio \
+      and amount of api hits on .NET Google Analytics Api (which fetches data from Google Analytics) \
+      using interactive charts and graphs. Built with React.js for the frontend and .NET Core Web API for the backend.",
+      technologies: ['React.js', '.NET'],
+      githubUrl: 'https://github.com/gaurang557/analyticsportal',
+      liveUrl: 'https://gaurang557.github.io/analyticsportal' 
+    },
+    {
+      title: '.NET Google Analytics Api',
+      description: "The API which serves as a bridge between the Google Analytics \
+      and the Analytics Dashboard, built using .NET Core Web API. It fetches data \
+      from Google Analytics and provides endpoints for the dashboard to consume.",
+      technologies: ['.NET'],
+      githubUrl: 'https://github.com/gaurang557/analyticsapi',
+      liveUrl: 'https://analyticsapi-6qg1.onrender.com/swagger'
+    },
     {
       title: 'Movie Explorer Angular App',
       description: "Created an Angular application which fetches a list of movies \
@@ -10,24 +28,6 @@ const Projects = () => {
       technologies: ['Angular', 'Node.js'],
       githubUrl: 'https://github.com/gaurang557/angular_omdb_app',
       liveUrl: 'https://gaurang557.github.io/angular_omdb_app/index' 
-    },
-    {
-      title: 'Rate limiter Middleware',
-      description: "Developing a rate limiter middleware using .NET \
-      making the application live soon.",
-      technologies: ['.NET'],
-      githubUrl: '',
-      liveUrl: '' 
-    },
-    {
-      title: 'Dashboard Admin Panel',
-      description: "Developing a responsive admin dashboard for the rate limiter\
-      application using Next.js, \
-      featuring data visualization with charts and graphs, user authentication, \
-      making the application live soon.",
-      technologies: ['Next.js', 'Node.js'],
-      githubUrl: '',
-      liveUrl: '' 
     }
   ];
   return (
@@ -48,7 +48,7 @@ const Projects = () => {
                 </div>
                 <div className="flex gap-3">
                   {project.githubUrl && <a 
-                    href={project.githubUrl} 
+                    href={project.githubUrl}
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors"
