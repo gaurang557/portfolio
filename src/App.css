@@ -1,33 +1,104 @@
-#root {
-  top: 0;
-  width: 100%;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background: rgb(240, 240, 240);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#home{
+  margin: 10px 0 0 0;
+  justify-items: center;
+}
+.desktopnav{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: white;
+  padding: 10px 100px 10px 100px;
+}
+.name{
+  margin: 10px 10px 10px 10px;
+}
+.socialpanel{
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 20px 0 20px 0;
+}
+.socialbutton{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 180px;
+  height: 60px;
+  color: white;
+  padding: 20px 30px 20px 30px;
+}
+.education{
+  margin: 20px 0 0 0;
+}
+#projects{
+  margin: 20px;
+}
+.projectpanel{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 10px;
+  margin: 20px 10px 0 10px;
+}
+.projectcard{
+  display: grid;
+  grid-template-rows: 50px 1fr  auto;
   text-align: center;
-  background-color: rgb(255, 255, 255);
+  padding: 10px 5px 10px 5px;
 }
-
-.App{
-  width: 100%;
+.technologies{
+  margin: 10px 0 10px 0;
+  align-items: center;
 }
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.techbutton{
+  color: black;
+  margin: 0 5px 0 5px;
+  background: rgb(175, 175, 250);
+  padding: 5px 8px 5px 8px;
+  border-radius: 15px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+#skills{
+  /* height: 300px; */
+  margin: 20px;
 }
-
-.card {
-  padding: 2em;
+.skills{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 180px 180px;
+  column-gap: 10px;
+  row-gap: 10px;
+  margin: 20px 10px 0 10px;
 }
-
-.read-the-docs {
-  color: #888;
+.skillcard{
+  display: grid;
+  grid-template-rows: 50px 1fr;
+  background: white;
+  text-align: center;
+  padding: 10px 5px 10px 5px;
+}
+.skillbutton{
+  color: black;
+  min-width: 100px;
+  height: fit-content;
+  align-content: center;
+  font-size: small;
+  margin: 0 5px 0 5px;
+  background: #ccc;
+  padding: 5px 8px 5px 5px;
+  border-radius: 15px;
+}
+.about{
+  margin: 20px;
+  padding: 50px;
+}
+.aboutcontent{
+  padding: 20px;
 }

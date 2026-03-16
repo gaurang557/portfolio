@@ -19,7 +19,7 @@ function App() {
     backend: ['.NET Core', 'ASP.NET', 'Django', 'Spring Boot', 'Node.js', 'Express.js'],
     frontend: ['Next.js', 'React', 'Angular', 'Zustand', 'Redux', 'HTML5', 'CSS3', 'Tailwind', 'Material UI'],
     cloud: ['Azure','AWS', 'EC2', 'EKS', 'ECR', 'RDS', 'S3', 'Route53'],
-    devops: ['Azure Devops', 'CI/CD Pipelines', 'GitHub Actions', 'Docker', 'Kubernetes', 'Helm', 'Git'],
+    devops: ['Azure Devops', 'Docker', 'Kubernetes', 'Helm', 'Git', 'CI/CD Pipelines', 'GitHub Actions',],
     databases: ['PostgreSQL','MongoDB']
   };
 
@@ -56,19 +56,11 @@ function App() {
   ];
 
   return (
-    <div className="min-h-screen min-w-screen bg-gradient-to-br from-gray-50 to-gray-100">
+    <div>
       {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white shadow-md z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <p className="name text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Gaurang Agarwal
-              </p>
-            </div>
-            
+        <div>
             {/* Desktop Navigation */}
-            <div className="hidden md:flex space-x-8">
+            <div className="hidden md:flex desktopnav">
               {['home', 'about', 'projects', 'skills', 'experience', 'achievements', 'contact'].map((section) => (
                 <button
                   key={section}
@@ -89,7 +81,6 @@ function App() {
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
-          </div>
 
           {/* Mobile Navigation */}
           {isMenuOpen && (
@@ -106,25 +97,21 @@ function App() {
             </div>
           )}
         </div>
-      </nav>
       <Hero />
       <About />
       <Projects />
 
-
-      {/* Skills Section */}
-      <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+      <div id="skills" className="py-20 px-4 sm:px-6 lg:px-8">
           <h3 className="text-4xl font-bold text-center mb-12 text-gray-900">Technical Skills</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="skills">
             {Object.entries(skills).map(([category, items]) => (
-              <div key={category} className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-                <h4 className="text-xl font-bold mb-4 capitalize text-blue-600 flex items-center gap-2">
+              <div key={category} className="skillcard rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                <h4 className="text-xl font-bold mb-4 capitalize text-blue-600 flex justify-center gap-2">
                   <Code size={20} /> {category}
                 </h4>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap justify-center  gap-2">
                   {items.map((skill) => (
-                    <span key={skill} className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">
+                    <span key={skill} className="skillbutton">
                       {skill}
                     </span>
                   ))}
@@ -132,12 +119,11 @@ function App() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
+      </div>
 
       {/* Experience Section */}
-      <section id="experience" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-7xl mx-auto">
+      <div id="experience" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div>
           <h3 className="text-4xl font-bold text-center mb-12 text-gray-900">Work Experience</h3>
           {experience.map((job, index) => (
             <div key={index} className="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-xl shadow-lg">
@@ -160,11 +146,11 @@ function App() {
             </div>
           ))}
         </div>
-      </section>
+      </div>
 
       {/* Achievements Section */}
       <section id="achievements" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-7xl mx-auto">
+        <div>
           <h3 className="text-4xl font-bold text-center mb-12 text-gray-900">Achievements</h3>
           <div className="grid md:grid-cols-2 gap-6">
             {achievements.map((achievement, index) => (
