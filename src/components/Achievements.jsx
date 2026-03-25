@@ -10,14 +10,13 @@ const Achievements = () => {
     },
     {
       title: 'Impact Creator',
-      date: '2024',
+      date: 'Mar 2025',
       description: 'Selected for high-impact technical contributions with monetary award'
     }
   ];
   return (
-      <section id="achievements" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-        <div>
-          <h3 className="text-4xl font-bold text-center mb-12 text-gray-900">Achievements</h3>
+      <div id="achievements" className="py-20 px-4 sm:px-6 lg:px-8">
+          <h3 className="text-4xl achheading font-bold text-center text-gray-900">Achievements</h3>
           <div className="grid md:grid-cols-2 gap-6">
             {achievements.map((achievement, index) => (
               <div key={index} className="bg-gradient-to-br from-gray-50 to-gray-100 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
@@ -32,8 +31,7 @@ const Achievements = () => {
               </div>
             ))}
           </div>
-        </div>
-      </section>
+      </div>
   )
 }
 

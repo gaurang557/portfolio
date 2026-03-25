@@ -45,7 +45,9 @@ body{
 .projectpanel{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
   column-gap: 10px;
+  row-gap: 10px;
   margin: 20px 10px 0 10px;
 }
 .projectcard{
@@ -59,14 +61,13 @@ body{
   align-items: center;
 }
 .techbutton{
-  color: black;
+  color: white;
   margin: 0 5px 0 5px;
-  background: rgb(175, 175, 250);
+  background: rgb(10, 15, 94);
   padding: 5px 8px 5px 8px;
   border-radius: 15px;
 }
 #skills{
-  /* height: 300px; */
   margin: 20px;
 }
 .skills{
@@ -85,20 +86,50 @@ body{
   padding: 10px 5px 10px 5px;
 }
 .skillbutton{
-  color: black;
+  color: white;
   min-width: 100px;
   height: fit-content;
   align-content: center;
   font-size: small;
   margin: 0 5px 0 5px;
-  background: #ccc;
+  background: rgb(10,15,94);
   padding: 5px 8px 5px 5px;
   border-radius: 15px;
+}
+#experience{
+  margin: 50px 0 0 0;
+  justify-items: center;
+}
+.expitem{
+  display: flex;
+  background: white;
+  margin: 20px 30px 20px 30px;
+  padding: 20px 30px 20px 30px;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  /* width: 1200px; */
+}
+.expheading{
+  display: flex;
+  flex-direction: column;
+}
+#achievements{
+  margin: 20px;
+}
+.achheading{
+  margin: 0 0 20px 0;
 }
 .about{
   margin: 20px;
   padding: 50px;
 }
 .aboutcontent{
-  padding: 20px;
+  padding: 30px 100px 30px 100px;
+  justify-items: center;
+}
+#contact{
+  display: flex;
+  flex-direction: column;
+  height: 100px;
 }

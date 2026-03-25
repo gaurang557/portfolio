@@ -67,9 +67,8 @@ function App() {
       <Experience />
       <Achievements />
       <ContactComp />
-      {/* Footer */}
       <footer className="bg-gray-900 text-white py-8 px-4">
-        <div className="max-w-7xl mx-auto text-center">
+        <div className="mx-auto text-center">
           <p>&copy; 2026 Gaurang Agarwal. All rights reserved.</p>
         </div>
       </footer>

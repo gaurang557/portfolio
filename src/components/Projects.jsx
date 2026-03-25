@@ -6,24 +6,33 @@ const Projects = () => {
     const [selectedDiagram, setSelectedDiagram] = useState(null);
     const projects = [
       {
+        title: 'Shortlink',
+        description: "A Web Service to provide the URL shortening and redirecting\
+         service to end users, enabled async processing for analytics updation in database",
+        technologies: ['Django', 'redis', 'celery', 'postgres'],
+        githubUrl: 'https://github.com/gaurang557/analyticsportal',
+        liveUrl: 'https://urlshortener-prjs.onrender.com',
+        diagram: 'systemdiagrams/urlshortener.png'
+      },
+      {
+      title: 'Analytics Api',
+      description: "The API which serves as a bridge between the Google Analytics \
+      and the Analytics Dashboard, built using .NET Core Web API. It fetches data \
+      from Google Analytics and provides endpoints for the dashboard to consume.",
+      technologies: ['.NET', 'google analytics','redis'],
+      githubUrl: 'https://github.com/gaurang557/analyticsapi',
+      liveUrl: 'https://analyticsapi-6qg1.onrender.com/swagger',
+      diagram: ''
+    },
+      {
       title: 'Analytics Dashboard',
       description: "A web-based dashboard application that visualizes visits on my portfolio \
       and amount of api hits on .NET Google Analytics Api (which fetches data from Google Analytics) \
       using interactive charts and graphs. Built with React.js for the frontend and .NET Core Web API for the backend.",
-      technologies: ['React.js', '.NET'],
+      technologies: ['React'],
       githubUrl: 'https://github.com/gaurang557/analyticsportal',
       liveUrl: 'https://gaurang557.github.io/analyticsportal',
-      diagram: 'y.drawio.png'
-    },
-    {
-      title: '.NET Google Analytics Api',
-      description: "The API which serves as a bridge between the Google Analytics \
-      and the Analytics Dashboard, built using .NET Core Web API. It fetches data \
-      from Google Analytics and provides endpoints for the dashboard to consume.",
-      technologies: ['.NET'],
-      githubUrl: 'https://github.com/gaurang557/analyticsapi',
-      liveUrl: 'https://analyticsapi-6qg1.onrender.com/swagger',
-      diagram: 'y.drawio.png'
+      diagram: ''
     },
     {
       title: 'Movie Explorer Angular App',
@@ -32,7 +41,7 @@ const Projects = () => {
       technologies: ['Angular', 'Node.js'],
       githubUrl: 'https://github.com/gaurang557/angular_omdb_app',
       liveUrl: 'https://gaurang557.github.io/angular_omdb_app/index',
-      diagram: 'y.drawio.png'
+      diagram: ''
     }
   ];
   return (
@@ -52,8 +61,8 @@ const Projects = () => {
                       </span>
                     ))}
                   </div>
-                  <div className="flex gap-3 justify-center">
-                    {project.githubUrl && <a 
+                  <div className="flex gap-2 justify-center">
+                    <a 
                       href={project.githubUrl}
                       target="_blank" 
                       rel="noopener noreferrer"
@@ -62,9 +71,7 @@ const Projects = () => {
                     >
                       <Github size={18} className='text-gray-100' /> <span className="text-gray-100">Code</span>
                     </a>
-                    }
-                    {project.liveUrl && (
-                      <a 
+                    <a 
                         href={project.liveUrl} 
                         target="_blank" 
                         rel="noopener noreferrer"
@@ -73,16 +80,13 @@ const Projects = () => {
                       >
                         <ExternalLink size={18} className="text-gray-100" /> <span className="text-gray-100">Live Demo</span>
                       </a>
-                    )}
-                    {1 && (
-                      <button
+                      {project.diagram && <button
                         onClick={() => setSelectedDiagram(project.diagram)}
                         style={{width: "fit-content"}}
                         className="flex socialbutton items-center gap-2 bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors"
                       >
-                        View System Design
-                      </button>
-                    )}
+                        System Design
+                      </button>}
                   </div>
                 </div>
 
@@ -90,22 +94,22 @@ const Projects = () => {
             ))}
           </div>
           {selectedDiagram && (
-            <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
-              
+            // <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
+            <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50">
               <div className="relative bg-white p-4 rounded-xl max-w-5xl w-full">
                 
                 <button
                   onClick={() => setSelectedDiagram(null)}
-                  className="absolute top-2 right-3 text-2xl font-bold"
+                  className="absolute top-3 right-3 z-50 bg-black/70 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-black"
                 >
                   ✕
                 </button>
 
                 <img
-                  src={selectedDiagram}
-                  alt="System Design"
-                  className="w-full rounded-lg"
-                />
+  src={selectedDiagram}
+  alt="System Design"
+  className="max-h-[80vh] w-auto mx-auto rounded-lg object-contain"
+/>
 
               </div>
 

@@ -4,11 +4,11 @@ import { Github, Linkedin, Code } from 'lucide-react';
 
 const Skills = () => {
     const skills = {
-    languages: ['C#', 'C++', 'Python','JavaScript', 'TypeScript', 'SQL'],
-    backend: ['.NET Core', 'ASP.NET', 'Django', 'Spring Boot', 'Node.js', 'Express.js'],
-    frontend: ['Next.js', 'React', 'Angular', 'Zustand', 'Redux', 'HTML5', 'CSS3', 'Tailwind', 'Material UI'],
-    cloud: ['Azure','AWS', 'EC2', 'EKS', 'ECR', 'RDS', 'S3', 'Route53'],
-    devops: ['Azure Devops', 'Docker', 'Kubernetes', 'Helm', 'Git', 'CI/CD Pipelines', 'GitHub Actions',],
+    languages: ['Python', 'C#', 'TypeScript', 'MySQL'],
+    backend: ['Django','.NET','Node.js', 'Express.js'],
+    cloud: ['AWS', 'EC2', 'EKS', 'ECR', 'S3'],
+    devops: ['CI/CD Pipelines', 'GitHub Actions', 'Docker', 'Kubernetes', 'Helm',],
+    frontend: ['Next.js', 'Angular', 'CSS3'],
     databases: ['PostgreSQL','MongoDB']
   };
   return (
@@ -17,7 +17,7 @@ const Skills = () => {
           <div className="skills">
             {Object.entries(skills).map(([category, items]) => (
               <div key={category} className="skillcard rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-                <h4 className="text-xl font-bold mb-4 capitalize text-blue-600 flex justify-center gap-2">
+                <h4 className="skillheading text-xl font-bold mb-4 capitalize text-blue-600 flex items-center justify-center gap-2">
                   <Code size={20} /> {category}
                 </h4>
                 <div className="flex flex-wrap justify-center  gap-2">
