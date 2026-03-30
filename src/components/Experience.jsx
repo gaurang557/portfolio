@@ -14,7 +14,7 @@ const Experience = () => {
         "Accelerated api’s performance by 80% by designing and implementing caching in the backend application.",
         "Developed CI/CD pipeline's yaml configurations for ~20 components, managing the image build and image push to AWS ECR, including automated tag increment and vulnerability scanning, increasing developer’s productivity by 50%",
         "Resolved production errors across ~25 components under crucial deadlines through analysing the root causes and fixing application code and helm configuration.",
-        "Upgraded 80 .NET components from framework 4.5 to core 8.0 through developing a .NET console application, automating manual development steps and dependency version upgrade in project files by fetching dependencies’s metadata from enterprise nuget feed, saving ~800 developer hours",
+        "Upgraded 80 legacy web components to latest version of framework through developing a Flask  application, automating manual development steps and dependency version upgrade in project files by fetching dependencies metadata from enterprise nuget feed, saving ~800 developer hours",
         "Delivered 20+ full-stack web applications for production, accelerating the internal product launch by 60% by coding a reusable boilerplate in JavaScript using Express and Angular as frameworks integrated with MongoDB",
         "Restored SQL database integrity by diagnosing cross-environment data mismatches and executing corrective updates across relational tables, recovering broken data pipelines and stabilizing backend services.",
         "Modernized 50+ web pages by refactoring legacy CSS into a modular SASS architecture, improving initial load performance by 60% and enforcing consistent design standards."
