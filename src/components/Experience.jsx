@@ -33,10 +33,9 @@ const Experience = () => {
               <h4>{job.title}</h4>
             </div>
 
-            {/* 🔥 Highlighted Company */}
+
             <p className="exp-company">{job.company}</p>
 
-            {/* Meta Info */}
             <div className="exp-meta">
               <span>{job.duration}</span>
             </div>
