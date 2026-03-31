@@ -55,7 +55,13 @@ body{
   grid-template-rows: 50px 1fr  auto;
   text-align: center;
   padding: 10px 5px 10px 5px;
+  background: linear-gradient(135deg, #f9fafb, #eef2ff);
+  transition: all 0.3s ease;
 }
+.projectcard:hover {
+  transform: translateY(-6px);
+}
+
 .technologies{
   margin: 10px 0 10px 0;
   align-items: center;
@@ -63,7 +69,7 @@ body{
 .techbutton{
   color: white;
   margin: 0 5px 0 5px;
-  background: rgb(10, 15, 94);
+  background: rgb(0, 0, 0);
   padding: 5px 8px 5px 8px;
   border-radius: 15px;
 }
@@ -81,9 +87,16 @@ body{
 .skillcard{
   display: grid;
   grid-template-rows: 50px 1fr;
-  background: white;
   text-align: center;
-  padding: 10px 5px 10px 5px;
+  background: linear-gradient(135deg, #f9fafb, #eef2ff);
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.skillcard:hover {
+  transform: translateY(-6px);
 }
 .skillbutton{
   color: white;
@@ -92,7 +105,7 @@ body{
   align-content: center;
   font-size: small;
   margin: 0 5px 0 5px;
-  background: rgb(10,15,94);
+  background: rgb(0,0,0);
   padding: 5px 8px 5px 5px;
   border-radius: 15px;
 }
@@ -131,5 +144,12 @@ body{
 #contact{
   display: flex;
   flex-direction: column;
+  align-items: center;
+  color: black;
+  background: linear-gradient(45deg,rgb(128,128,128),rgb(200,200,200));
+  gap: 20px;
   height: 100px;
+}
+.conspan{
+  color: black;
 }

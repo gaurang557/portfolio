@@ -6,7 +6,7 @@ const Achievements = () => {
     {
       title: 'Star of the Month',
       date: 'October 2024',
-      description: 'Awarded for building automation tool to upgrade legacy .NET applications to .NET Core 8'
+      description: 'Awarded for building automation tool to upgrade legacy web applications to latest framework version'
     },
     {
       title: 'Impact Creator',

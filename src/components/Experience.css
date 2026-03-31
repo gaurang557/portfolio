@@ -1,0 +1,117 @@
+/* Section Title */
+.exp-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  color: #1f2937;
+}
+
+/* Grid Layout */
+.exp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+/* Card */
+.exp-card {
+  background: linear-gradient(135deg, #f9fafb, #eef2ff);
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.exp-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* Header */
+.exp-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+/* Icon */
+.exp-icon {
+  color: #2563eb;
+  margin-right: 10px;
+}
+
+/* Company */
+.exp-company {
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+/* Domain */
+.exp-domain {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-bottom: 1rem;
+}
+
+.exp-domain span {
+  font-weight: 600;
+  color: #374151;
+}
+
+/* Tech Stack */
+.exp-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Badge */
+.tech-badge {
+  background-color: #141517;
+  color: #fff;
+  font-size: 0.75rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+
+.tech-badge:hover {
+  background-color: #bfdbfe;
+}
+/* Company (NOW STANDS OUT) */
+.exp-company {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1d4ed8; /* strong blue */
+  margin-bottom: 0.3rem;
+  letter-spacing: 0.3px;
+}
+
+/* Meta row (duration + experience) */
+.exp-meta {
+  display: flex;
+  align-items: center;
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-bottom: 0.8rem;
+}
+
+.exp-meta .dot {
+  margin: 0 6px;
+}
+
+/* Years of experience (highlighted subtly) */
+.exp-years {
+  color: #059669; /* green accent */
+  font-weight: 600;
+}
+
+/* Optional: Slight improvement to title hierarchy */
+.exp-header h4 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #111827;
+}

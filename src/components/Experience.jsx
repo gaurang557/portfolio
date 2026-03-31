@@ -1,52 +1,63 @@
-import React from 'react'
+import React from 'react';
 import { Briefcase } from 'lucide-react';
-
+import './Experience.css';
 
 const Experience = () => {
-    const experience = [
+  const experience = [
     {
-      title: 'Software Engineer',
+      title: 'Software Engineer II',
       company: 'Accenture',
-      location: 'Gurugram',
-      period: 'January 2023 - Present',
-      highlights: [
-        "Designed and Developed a full-stack tool, automating frequent deployments to AWS EKS cluster for non-production environments, increasing deployment speed by 70%",
-        "Accelerated api’s performance by 80% by designing and implementing caching in the backend application.",
-        "Developed CI/CD pipeline's yaml configurations for ~20 components, managing the image build and image push to AWS ECR, including automated tag increment and vulnerability scanning, increasing developer’s productivity by 50%",
-        "Resolved production errors across ~25 components under crucial deadlines through analysing the root causes and fixing application code and helm configuration.",
-        "Upgraded 80 .NET components from framework 4.5 to core 8.0 through developing a .NET console application, automating manual development steps and dependency version upgrade in project files by fetching dependencies’s metadata from enterprise nuget feed, saving ~800 developer hours",
-        "Delivered 20+ full-stack web applications for production, accelerating the internal product launch by 60% by coding a reusable boilerplate in JavaScript using Express and Angular as frameworks integrated with MongoDB",
-        "Restored SQL database integrity by diagnosing cross-environment data mismatches and executing corrective updates across relational tables, recovering broken data pipelines and stabilizing backend services.",
-        "Modernized 50+ web pages by refactoring legacy CSS into a modular SASS architecture, improving initial load performance by 60% and enforcing consistent design standards."
-
-      ]
+      duration: 'Mar 2025 - Present',
+      domain: 'Full Stack Development / Cloud Engineering',
+      techStack: ['Django', 'Flask', 'AWS', 'SQL', 'React']
+    },
+    {
+      title: 'Software Engineer I',
+      company: 'Accenture',
+      duration: 'Jan 2023 - Mar 2025',
+      domain: 'Full Stack Development / Cloud Engineering',
+      techStack: ['Django', 'Angular', '.NET', 'Node.js', 'Express', 'MongoDB']
     }
   ];
-  return (
-    <div id="experience" className="py-20 px-4 sm:px-6 lg:px-8">
-          <h3 className="text-4xl font-bold text-center mb-12 text-gray-900">Work Experience</h3>
-          {experience.map((job, index) => (
-            <div key={index} className="expitem bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-xl shadow-lg">
-                <div className="expheading">
-                  <div className='flex items-center'>
-                    <Briefcase className="text-blue-600 mt-1" size={24} />
-                      <h4 className="text-2xl font-bold text-gray-900">{job.title}</h4>
-                  </div>
-                    <p className="text-lg text-gray-700 font-semibold">{job.company} - {job.location}</p>
-                    <p className="text-gray-600">{job.period}</p>
-                </div>
-              <ul className="space-y-2 ml-10">
-                {job.highlights.map((highlight, idx) => (
-                  <li key={idx} className="text-gray-700 flex items-start">
-                    <span className="text-blue-600 mr-2">▹</span>
-                    {highlight}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-      </div>
-  )
-}
 
-export default Experience
+  return (
+    <div id="experience" className="py-20 px-6">
+      <h3 className="exp-title">Work Experience (3+ years)</h3>
+
+      <div className="exp-grid">
+        {experience.map((job, index) => (
+          <div key={index} className="exp-card">
+            
+            <div className="exp-header">
+              <Briefcase className="exp-icon" size={22} />
+              <h4>{job.title}</h4>
+            </div>
+
+            {/* 🔥 Highlighted Company */}
+            <p className="exp-company">{job.company}</p>
+
+            {/* Meta Info */}
+            <div className="exp-meta">
+              <span>{job.duration}</span>
+            </div>
+
+            <p className="exp-domain">
+              <span>Domain:</span> {job.domain}
+            </p>
+
+            <div className="exp-tech">
+              {job.techStack.map((tech, idx) => (
+                <span key={idx} className="tech-badge">
+                  {tech}
+                </span>
+              ))}
+            </div>
+
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Experience;

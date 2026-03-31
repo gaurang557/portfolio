@@ -63,8 +63,8 @@ function App() {
       <Hero />
       <About />
       <Projects />
-      <Skills />
       <Experience />
+      <Skills />
       <Achievements />
       <ContactComp />
       <footer className="bg-gray-900 text-white py-8 px-4">

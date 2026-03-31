@@ -4,12 +4,12 @@ import { Github, Linkedin, Code } from 'lucide-react';
 
 const Skills = () => {
     const skills = {
-    languages: ['Python', 'C#', 'TypeScript', 'MySQL'],
-    backend: ['Django','.NET','Node.js', 'Express.js'],
-    cloud: ['AWS', 'EC2', 'EKS', 'ECR', 'S3'],
-    devops: ['CI/CD Pipelines', 'GitHub Actions', 'Docker', 'Kubernetes', 'Helm',],
+    languages: ['Python', 'C#', 'Java', 'TypeScript', 'MySQL'],
+    backend: ['Django', 'Flask', '.NET','Node.js'],
+    cloud: ['AWS', 'EC2', 'EKS', 'Azure', 'App Service', 'Virtual machines'],
+    devops: ['Docker', 'Kubernetes', 'Helm', 'CI/CD', ],
     frontend: ['Next.js', 'Angular', 'CSS3'],
-    databases: ['PostgreSQL','MongoDB']
+    databases: ['PostgreSQL', 'Redis', 'MongoDB']
   };
   return (
     <div id="skills" className="py-20 px-4 sm:px-6 lg:px-8">
