@@ -6,12 +6,12 @@ const Projects = () => {
     const [selectedDiagram, setSelectedDiagram] = useState(null);
     const projects = [
       {
-        title: 'Shortlink',
+        title: 'NanoLink',
         description: "A Web Service to provide the URL shortening and redirecting\
          service to end users, enabled async processing for analytics updation in database",
         technologies: ['Django', 'redis', 'celery', 'postgres'],
         githubUrl: 'https://github.com/gaurang557/analyticsportal',
-        liveUrl: 'https://urlshortener-prjs.onrender.com',
+        liveUrl: 'https://nanolink.sbs',
         diagram: 'systemdiagrams/urlshortener.png'
       },
       {
