@@ -1,122 +1,235 @@
-import { useState } from 'react';
-import React from 'react'
-import { Github, ExternalLink } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Github, ExternalLink, X } from 'lucide-react';
 
 const Projects = () => {
-    const [selectedDiagram, setSelectedDiagram] = useState(null);
-    const projects = [
-      {
-        title: 'NanoLink',
-        description: "A Web Service to provide the URL shortening and redirecting\
-         service to end users, enabled async processing for analytics updation in database",
-        technologies: ['Django', 'redis', 'celery', 'postgres'],
-        githubUrl: 'https://github.com/gaurang557/analyticsportal',
-        liveUrl: 'https://nanolink.sbs',
-        diagram: 'systemdiagrams/urlshortener.png'
-      },
-      {
-      title: 'Analytics Api',
-      description: "The API which serves as a bridge between the Google Analytics \
-      and the Analytics Dashboard, built using .NET Core Web API. It fetches data \
-      from Google Analytics and provides endpoints for the dashboard to consume.",
-      technologies: ['.NET', 'google analytics','redis'],
+  const [selectedProject, setSelectedProject] = useState(null);
+
+  const projects = [
+    {
+      title: 'NanoLink',
+      description:
+        'A Web Service providing URL shortening and redirecting to end users, with async processing for analytics updates in the database.',
+      technologies: ['Django', 'Redis', 'Celery', 'PostgreSQL'],
+      githubUrl: 'https://github.com/gaurang557/analyticsportal',
+      liveUrl: 'https://nanolink.sbs',
+      diagram: 'systemdiagrams/urlshortener.png',
+      screenshots: [],
+    },
+    {
+      title: 'Analytics API',
+      description:
+        'A .NET Core Web API that bridges Google Analytics and the Analytics Dashboard. Fetches GA data and exposes REST endpoints for dashboard consumption.',
+      technologies: ['.NET', 'Google Analytics', 'Redis'],
       githubUrl: 'https://github.com/gaurang557/analyticsapi',
       liveUrl: '',
-      diagram: ''
+      diagram: '',
+      screenshots: [],
     },
-      {
+    {
       title: 'Analytics Dashboard',
-      description: "A web-based dashboard application that visualizes visits on my portfolio \
-      and amount of api hits on .NET Google Analytics Api (which fetches data from Google Analytics) \
-      using interactive charts and graphs. Built with React.js for the frontend and .NET Core Web API for the backend.",
-      technologies: ['React'],
+      description:
+        'A React dashboard visualising portfolio visits and .NET API hits using interactive charts and graphs, backed by Google Analytics data.',
+      technologies: ['React', '.NET Core'],
       githubUrl: 'https://github.com/gaurang557/analyticsportal',
       liveUrl: 'https://gaurang557.github.io/analyticsportal',
-      diagram: ''
+      diagram: '',
+      screenshots: [],
     },
     {
       title: 'Movie Explorer Angular App',
-      description: "Created an Angular application which fetches a list of movies \
-      from OMDB Api and displays them in a user-friendly interface. Implemented search functionality",
-      technologies: ['Angular', 'Node.js'],
+      description:
+        'An Angular application that fetches movies from the OMDB API and displays them in a user-friendly interface with search functionality.',
+      technologies: ['Angular', 'Node.js', 'OMDB API'],
       githubUrl: 'https://github.com/gaurang557/angular_omdb_app',
       liveUrl: 'https://gaurang557.github.io/angular_omdb_app/index',
-      diagram: ''
-    }
+      diagram: '',
+      screenshots: [],
+    },
   ];
+
+  useEffect(() => {
+    const handleKey = (e) => {
+      if (e.key === 'Escape') setSelectedProject(null);
+    };
+    if (selectedProject) {
+      document.addEventListener('keydown', handleKey);
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.removeEventListener('keydown', handleKey);
+      document.body.style.overflow = '';
+    };
+  }, [selectedProject]);
+
+  const handleOverlayClick = (e) => {
+    if (e.target === e.currentTarget) setSelectedProject(null);
+  };
+
   return (
-      <div id="projects" className="py-20 px-4 sm:px-6 lg:px-8">
-          <h3 className="text-4xl font-bold text-center text-gray-900">Projects</h3>
-          <div className="projectpanel">
-            {projects.map((project, index) => (
-              <div key={index} className="projectcard bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all">
-                <h4 className="text-2xl font-bold text-gray-900 ">{project.title}</h4>
-                <p className="text-gray-700 mb-4">{project.description}</p>
-                <div>
-                  <div className="technologies flex flex-wrap gap-2">
-                    <h6 className='text-gray-900 font-bold'>Technologies: </h6>
-                    {project.technologies.map((tech) => (
-                      <span key={tech} className="techbutton">
-                        {tech}
-                      </span>
+    <div id="projects" className="py-20 px-4 sm:px-6 lg:px-8">
+      <h3 className="text-4xl font-bold text-center text-gray-900 mb-2">Projects</h3>
+      <p className="text-center text-gray-500 mb-8 text-sm">Click any card to explore details</p>
+
+      <div className="projectpanel">
+        {projects.map((project, index) => (
+          <div
+            key={index}
+            className="projectcard"
+            onClick={() => setSelectedProject(project)}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => e.key === 'Enter' && setSelectedProject(project)}
+          >
+            <div className="card-accent" />
+            <div className="card-body">
+              <h4 className="text-xl font-bold text-gray-900 mb-2">{project.title}</h4>
+              <p className="text-gray-600 text-sm flex-grow mb-4 leading-relaxed">
+                {project.description}
+              </p>
+              <div className="flex flex-wrap gap-1.5 mb-4">
+                {project.technologies.map((tech) => (
+                  <span key={tech} className="techbutton">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="card-footer">
+              <span className="view-details-btn">View Details →</span>
+              <div className="card-actions">
+                {project.githubUrl && (
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="card-icon-btn"
+                    title="View Code"
+                  >
+                    <Github size={15} />
+                  </a>
+                )}
+                {project.liveUrl && (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="card-icon-btn card-icon-btn--blue"
+                    title="Live Demo"
+                  >
+                    <ExternalLink size={15} />
+                  </a>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Project Detail Modal */}
+      {selectedProject && (
+        <div className="modal-overlay" onClick={handleOverlayClick}>
+          <div className="modal-container">
+            {/* Header */}
+            <div className="modal-header">
+              <h2 className="modal-title">{selectedProject.title}</h2>
+              <button
+                onClick={() => setSelectedProject(null)}
+                className="modal-close-btn"
+                aria-label="Close"
+              >
+                <X size={18} />
+              </button>
+            </div>
+
+            {/* Body */}
+            <div className="modal-body">
+              {/* About */}
+              <section>
+                <p className="modal-section-title">About</p>
+                <p className="text-gray-700 leading-relaxed text-sm">
+                  {selectedProject.description}
+                </p>
+              </section>
+
+              {/* Tech Stack */}
+              <section>
+                <p className="modal-section-title">Tech Stack</p>
+                <div className="flex flex-wrap gap-2">
+                  {selectedProject.technologies.map((tech) => (
+                    <span key={tech} className="techbutton">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </section>
+
+              {/* Links */}
+              {(selectedProject.githubUrl || selectedProject.liveUrl) && (
+                <section>
+                  <p className="modal-section-title">Links</p>
+                  <div className="flex flex-wrap gap-3">
+                    {selectedProject.githubUrl && (
+                      <a
+                        href={selectedProject.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="modal-link-btn modal-link-btn--dark"
+                      >
+                        <Github size={15} /> View Code
+                      </a>
+                    )}
+                    {selectedProject.liveUrl && (
+                      <a
+                        href={selectedProject.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="modal-link-btn modal-link-btn--blue"
+                      >
+                        <ExternalLink size={15} /> Live Demo
+                      </a>
+                    )}
+                  </div>
+                </section>
+              )}
+
+              {/* System Design Diagram */}
+              {selectedProject.diagram && (
+                <section>
+                  <p className="modal-section-title">System Design</p>
+                  <img
+                    src={selectedProject.diagram}
+                    alt={`${selectedProject.title} system design`}
+                    className="w-full rounded-xl border border-gray-200 object-contain"
+                  />
+                </section>
+              )}
+
+              {/* Screenshots */}
+              {selectedProject.screenshots && selectedProject.screenshots.length > 0 && (
+                <section>
+                  <p className="modal-section-title">Screenshots</p>
+                  <div className="flex flex-col gap-4">
+                    {selectedProject.screenshots.map((src, i) => (
+                      <img
+                        key={i}
+                        src={src}
+                        alt={`Screenshot ${i + 1}`}
+                        className="w-full rounded-xl border border-gray-200"
+                      />
                     ))}
                   </div>
-                  <div className="flex gap-2 justify-center">
-                    <a 
-                      href={project.githubUrl}
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      style={{width: "fit-content"}}
-                      className="flex socialbutton items-center gap-2 bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors"
-                    >
-                      <Github size={18} className='text-gray-100' /> <span className="text-gray-100">Code</span>
-                    </a>
-                    <a 
-                        href={project.liveUrl} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        style={{width: "fit-content"}}
-                        className="flex socialbutton items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
-                      >
-                        <ExternalLink size={18} className="text-gray-100" /> <span className="text-gray-100">Live Demo</span>
-                      </a>
-                      {project.diagram && <button
-                        onClick={() => setSelectedDiagram(project.diagram)}
-                        style={{width: "fit-content"}}
-                        className="flex socialbutton items-center gap-2 bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors"
-                      >
-                        System Design
-                      </button>}
-                  </div>
-                </div>
-
-              </div>
-            ))}
-          </div>
-          {selectedDiagram && (
-            // <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
-            <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50">
-              <div className="relative bg-white p-4 rounded-xl max-w-5xl w-full">
-                
-                <button
-                  onClick={() => setSelectedDiagram(null)}
-                  className="absolute top-3 right-3 z-50 bg-black/70 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-black"
-                >
-                  ✕
-                </button>
-
-                <img
-  src={selectedDiagram}
-  alt="System Design"
-  className="max-h-[80vh] w-auto mx-auto rounded-lg object-contain"
-/>
-
-              </div>
-
+                </section>
+              )}
             </div>
-          )}
-      </div>
-  )
-}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
 
-export default Projects
+export default Projects;
