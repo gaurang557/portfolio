@@ -9,14 +9,14 @@ const Experience = () => {
       company: 'Accenture',
       duration: 'Mar 2025 - Present',
       domain: 'Full Stack Development / Cloud Engineering',
-      techStack: ['Django', 'Flask', 'AWS', 'SQL', 'React']
+      techStack: ['Claude Code assisted Backend Development', 'Kafka', 'Redis', 'SQL', 'MongoDB']
     },
     {
       title: 'Software Engineer I',
       company: 'Accenture',
       duration: 'Jan 2023 - Mar 2025',
       domain: 'Full Stack Development / Cloud Engineering',
-      techStack: ['Django', 'Angular', '.NET', 'Node.js', 'Express', 'MongoDB']
+      techStack: ['Backend Development', 'Java', '.NET', 'Kafka', 'SQL', 'MongoDB']
     }
   ];
 

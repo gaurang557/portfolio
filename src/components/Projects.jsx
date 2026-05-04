@@ -21,7 +21,7 @@ const Projects = () => {
       from Google Analytics and provides endpoints for the dashboard to consume.",
       technologies: ['.NET', 'google analytics','redis'],
       githubUrl: 'https://github.com/gaurang557/analyticsapi',
-      liveUrl: 'https://analyticsapi-6qg1.onrender.com/swagger',
+      liveUrl: '',
       diagram: ''
     },
       {
