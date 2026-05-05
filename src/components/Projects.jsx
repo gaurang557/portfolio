@@ -16,6 +16,16 @@ const Projects = () => {
       screenshots: [],
     },
     {
+      title: 'RAG Studio',
+      description:
+        'A Retreival Augmented Generation application which integrates with groq LLM and answers the questions from a document\'s context',
+      technologies: ['FastAPI', 'PostgreSQL', 'In-memory caching', 'Angular'],
+      githubUrl: 'https://github.com/gaurang557/rag',
+      liveUrl: '',
+      diagram: '',
+      screenshots: ['rag/4.png', 'rag/1.png', 'rag/2.png', 'rag/3.png'],
+    },
+    {
       title: 'Analytics API',
       description:
         'A .NET Core Web API that bridges Google Analytics and the Analytics Dashboard. Fetches GA data and exposes REST endpoints for dashboard consumption.',
