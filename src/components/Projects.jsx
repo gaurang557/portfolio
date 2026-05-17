@@ -16,9 +16,19 @@ const Projects = () => {
       screenshots: [],
     },
     {
+      title: 'LLM Orchestrator',
+      description:
+        'An LLM protection tool with ability to use multiple LLM\'s with advanced LLM interaction features',
+      technologies: ['SpringBoot', 'PostgreSQL', 'Groq AI Api', 'Authorization'],
+      githubUrl: 'https://github.com/gaurang557/llmwrapper',
+      liveUrl: '',
+      diagram: '',
+      screenshots: ['llm/1.png', 'llm/2.png', 'llm/3.png'],
+    },
+    {
       title: 'RAG Studio',
       description:
-        'A Retreival Augmented Generation application which integrates with groq LLM and answers the questions from a document\'s context',
+        'A Retreival Augmented Generation application which integrates with Groq LLM and answers the questions from a document\'s context',
       technologies: ['FastAPI', 'PostgreSQL', 'In-memory caching', 'Angular'],
       githubUrl: 'https://github.com/gaurang557/rag',
       liveUrl: '',
